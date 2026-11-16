@@ -102,6 +102,30 @@ section a:hover {
 }
 
 /* =================================
+   BOTONES DE LOS EJERCICIOS
+================================= */
+
+section button {
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #245B58;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section button:hover {
+    background-color: #34413F;
+}
+
+section button:focus-visible {
+    outline: 3px solid #D5A52D;
+    outline-offset: 2px;
+}
+
+/* =================================
    ADAPTACION A CELULARES
 ================================= */
 
