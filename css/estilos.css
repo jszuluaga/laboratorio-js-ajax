@@ -126,6 +126,24 @@ section button:focus-visible {
 }
 
 /* =================================
+   ENLACE PARA VOLVER AL MENU
+================================= */
+
+main > a {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 15px;
+    color: #245B58;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main > a:hover {
+    color: #B58A20;
+    text-decoration: underline;
+}
+
+/* =================================
    ADAPTACION A CELULARES
 ================================= */
 
