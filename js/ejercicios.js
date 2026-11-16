@@ -51,10 +51,56 @@ function comprobarPalindromo() {
         : "El texto ingresado no es un palíndromo.";
 }
 
-
 /* =================================
    EVENTOS DEL EJERCICIO 1
 ================================= */
 
 document.getElementById("btnPalindromo")
     .addEventListener("click", comprobarPalindromo);
+
+/* =================================
+   EJERCICIO 2: COMPARAR DOS NÚMEROS
+================================= */
+
+function compararNumeros() {
+
+    const campoNumero1 = document.getElementById("numero1");
+    const campoNumero2 = document.getElementById("numero2");
+    const resultado = document.getElementById("resultadoComparacion");
+
+    const valor1 = campoNumero1.value.trim();
+    const valor2 = campoNumero2.value.trim();
+
+    // Validar que ambos campos tengan información.
+    if (valor1 === "" || valor2 === "") {
+        resultado.textContent = "Por favor, ingresa los dos números.";
+        return;
+    }
+
+    // Convertir los valores a números.
+    const numero1 = Number(valor1);
+    const numero2 = Number(valor2);
+
+    // Validar que sean valores numéricos válidos.
+    if (!Number.isFinite(numero1) || !Number.isFinite(numero2)) {
+        resultado.textContent = "Ingresa valores numéricos válidos.";
+        return;
+    }
+
+    // Comparar los números ingresados.
+    if (numero1 > numero2) {
+        resultado.textContent = `El número ${numero1} es mayor.`;
+    } else if (numero2 > numero1) {
+        resultado.textContent = `El número ${numero2} es mayor.`;
+    } else {
+        resultado.textContent = "Los dos números son iguales.";
+    }
+}
+
+/* =================================
+   EVENTOS DEL EJERCICIO 2
+================================= */
+
+document.getElementById("btnComparar")
+    .addEventListener("click", compararNumeros);
+
