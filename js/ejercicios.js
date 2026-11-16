@@ -149,3 +149,44 @@ function identificarVocales() {
 
 document.getElementById("btnVocales")
     .addEventListener("click", identificarVocales);
+
+/* =================================
+   EJERCICIO 4: CONTAR VOCALES
+================================= */
+
+function contarVocales() {
+
+    const texto = document.getElementById("textoConteo").value.trim();
+    const resultado = document.getElementById("resultadoConteo");
+
+    // Validar que el campo no esté vacío.
+    if (texto === "") {
+        resultado.textContent = "Por favor, ingresa una frase.";
+        return;
+    }
+
+    // Normalizar el texto ingresado.
+    const textoNormalizado = normalizarVocales(texto);
+
+    // Definir las vocales que se van a contar.
+    const vocales = ["a", "e", "i", "o", "u"];
+
+    // Contar las apariciones de cada vocal.
+    const conteo = {};
+
+    vocales.forEach(vocal => {
+        conteo[vocal] = Array.from(textoNormalizado)
+            .filter(letra => letra === vocal).length;
+    });
+
+    // Construir el resultado de los conteos.
+    resultado.textContent = vocales
+        .map(vocal => `${vocal.toUpperCase()}: ${conteo[vocal]}`)
+        .join(" | ");
+}
+/* =================================
+   EVENTOS DEL EJERCICIO 4
+================================= */
+
+document.getElementById("btnContar")
+    .addEventListener("click", contarVocales);
