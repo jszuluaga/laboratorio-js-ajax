@@ -170,3 +170,108 @@ main > a:hover {
         padding: 25px;
     }
 }
+
+
+/* =================================
+   PÁGINA DEL EJERCICIO AJAX
+================================= */
+
+.pagina-ajax {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.pagina-ajax .introduccion-ajax {
+    text-align: center;
+    line-height: 1.6;
+    margin-top: -10px;
+}
+
+.pagina-ajax .ajax-panel {
+    width: 100%;
+}
+
+.pagina-ajax .ajax-panel h3 {
+    color: #245B58;
+    margin: 24px 0 12px;
+}
+
+.ajax-formulario {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    margin-top: 10px;
+}
+
+.ajax-formulario input {
+    flex: 1;
+    min-width: 0;
+}
+
+.ajax-formulario button {
+    flex-shrink: 0;
+}
+
+.estado-solicitud {
+    margin-top: 20px;
+    padding: 12px 15px;
+    background-color: #F5F3EC;
+    border-left: 4px solid #D5A52D;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.informacion-respuesta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.informacion-respuesta p {
+    padding: 15px;
+    background-color: #F5F3EC;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
+
+.ajax-salida,
+.ajax-contenido {
+    width: 100%;
+    min-height: 110px;
+    max-height: 350px;
+    overflow: auto;
+    padding: 18px;
+    background-color: #F5F3EC;
+    color: #34413F;
+    border: 1px solid #D8D6CE;
+    border-radius: 8px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.ajax-contenido {
+    min-height: 180px;
+}
+
+/* Diseño adaptable */
+
+@media (max-width: 650px) {
+
+    .ajax-formulario {
+        flex-direction: column;
+    }
+
+    .ajax-formulario button {
+        width: 100%;
+    }
+
+    .informacion-respuesta {
+        grid-template-columns: 1fr;
+    }
+
+}
