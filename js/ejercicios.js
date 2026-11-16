@@ -13,6 +13,13 @@ function normalizarTexto(texto) {
         .replace(/[^a-z0-9ñ]/g, "");
 }
 
+// Normalizar las vocales conservando los demás caracteres.
+function normalizarVocales(texto) {
+    return texto
+        .toLocaleLowerCase("es")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
 
 /* =================================
    EJERCICIO 1: IDENTIFICAR PALÍNDROMOS
@@ -104,3 +111,41 @@ function compararNumeros() {
 document.getElementById("btnComparar")
     .addEventListener("click", compararNumeros);
 
+/* =================================
+   EJERCICIO 3: IDENTIFICAR VOCALES
+================================= */
+
+function identificarVocales() {
+
+    const texto = document.getElementById("textoVocales").value.trim();
+    const resultado = document.getElementById("resultadoVocales");
+
+    // Validar que el campo no esté vacío.
+    if (texto === "") {
+        resultado.textContent = "Por favor, ingresa una frase.";
+        return;
+    }
+
+    // Normalizar el texto ingresado.
+    const textoNormalizado = normalizarVocales(texto);
+
+    // Identificar las vocales presentes sin repetirlas.
+    const vocales = ["a", "e", "i", "o", "u"];
+
+    const vocalesEncontradas = vocales.filter(vocal =>
+        textoNormalizado.includes(vocal)
+    );
+
+    // Mostrar el resultado.
+    if (vocalesEncontradas.length > 0) {
+        resultado.textContent = `Las vocales encontradas son: ${vocalesEncontradas.join(", ")}.`;
+    } else {
+        resultado.textContent = "La frase ingresada no contiene vocales.";
+    }
+}
+/* =================================
+   EVENTOS DEL EJERCICIO 3
+================================= */
+
+document.getElementById("btnVocales")
+    .addEventListener("click", identificarVocales);
