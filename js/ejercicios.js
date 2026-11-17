@@ -21,6 +21,19 @@ function normalizarVocales(texto) {
         .replace(/[\u0300-\u036f]/g, "");
 }
 
+// Limpiar los campos y el resultado de un ejercicio.
+function limpiarEjercicio(idsCampos, idResultado) {
+    idsCampos.forEach(id => {
+        document.getElementById(id).value = "";
+    });
+
+    document.getElementById(idResultado).textContent = "";
+
+    // Dejar el cursor en el primer campo para una nueva operación.
+    document.getElementById(idsCampos[0]).focus();
+}
+
+
 /* =================================
    EJERCICIO 1: IDENTIFICAR PALÍNDROMOS
 ================================= */
@@ -58,12 +71,6 @@ function comprobarPalindromo() {
         : "El texto ingresado no es un palíndromo.";
 }
 
-/* =================================
-   EVENTOS DEL EJERCICIO 1
-================================= */
-
-document.getElementById("btnPalindromo")
-    .addEventListener("click", comprobarPalindromo);
 
 /* =================================
    EJERCICIO 2: COMPARAR DOS NÚMEROS
@@ -104,12 +111,6 @@ function compararNumeros() {
     }
 }
 
-/* =================================
-   EVENTOS DEL EJERCICIO 2
-================================= */
-
-document.getElementById("btnComparar")
-    .addEventListener("click", compararNumeros);
 
 /* =================================
    EJERCICIO 3: IDENTIFICAR VOCALES
@@ -143,12 +144,7 @@ function identificarVocales() {
         resultado.textContent = "La frase ingresada no contiene vocales.";
     }
 }
-/* =================================
-   EVENTOS DEL EJERCICIO 3
-================================= */
 
-document.getElementById("btnVocales")
-    .addEventListener("click", identificarVocales);
 
 /* =================================
    EJERCICIO 4: CONTAR VOCALES
@@ -184,9 +180,44 @@ function contarVocales() {
         .map(vocal => `${vocal.toUpperCase()}: ${conteo[vocal]}`)
         .join(" | ");
 }
+
+
 /* =================================
-   EVENTOS DEL EJERCICIO 4
+   EVENTOS DE LOS EJERCICIOS
 ================================= */
 
+// Ejercicio 1.
+document.getElementById("btnPalindromo")
+    .addEventListener("click", comprobarPalindromo);
+
+document.getElementById("btnLimpiarPalindromo")
+    .addEventListener("click", () => {
+        limpiarEjercicio(["textoPalindromo"], "resultadoPalindromo");
+    });
+
+// Ejercicio 2.
+document.getElementById("btnComparar")
+    .addEventListener("click", compararNumeros);
+
+document.getElementById("btnLimpiarComparacion")
+    .addEventListener("click", () => {
+        limpiarEjercicio(["numero1", "numero2"], "resultadoComparacion");
+    });
+
+// Ejercicio 3.
+document.getElementById("btnVocales")
+    .addEventListener("click", identificarVocales);
+
+document.getElementById("btnLimpiarVocales")
+    .addEventListener("click", () => {
+        limpiarEjercicio(["textoVocales"], "resultadoVocales");
+    });
+
+// Ejercicio 4.
 document.getElementById("btnContar")
     .addEventListener("click", contarVocales);
+
+document.getElementById("btnLimpiarConteo")
+    .addEventListener("click", () => {
+        limpiarEjercicio(["textoConteo"], "resultadoConteo");
+    });
