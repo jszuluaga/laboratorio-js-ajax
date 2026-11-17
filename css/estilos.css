@@ -105,19 +105,38 @@ section a:hover {
    BOTONES DE LOS EJERCICIOS
 ================================= */
 
+.acciones-ejercicio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
 section button {
     padding: 10px 20px;
-    margin-top: 15px;
     border: none;
     border-radius: 6px;
     background-color: #245B58;
     color: #FFFFFF;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 section button:hover {
     background-color: #34413F;
+}
+
+/* Botón secundario para limpiar */
+
+section button.btn-limpiar {
+    background-color: #E8E5DA;
+    color: #34413F;
+    border: 1px solid #D8D6CE;
+}
+
+section button.btn-limpiar:hover {
+    background-color: #D8D6CE;
 }
 
 section button:focus-visible {
@@ -169,6 +188,7 @@ main > a:hover {
     section {
         padding: 25px;
     }
+
 }
 
 /* =================================
@@ -314,4 +334,3 @@ main > a:hover {
     }
 
 }
-
