@@ -171,7 +171,6 @@ main > a:hover {
     }
 }
 
-
 /* =================================
    PÁGINA DEL EJERCICIO AJAX
 ================================= */
@@ -183,19 +182,39 @@ main > a:hover {
 }
 
 .pagina-ajax .introduccion-ajax {
+    margin-top: -10px;
     text-align: center;
     line-height: 1.6;
-    margin-top: -10px;
 }
 
-.pagina-ajax .ajax-panel {
+/* Distribución de los tres paneles */
+
+.ajax-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.ajax-grid .ajax-panel {
     width: 100%;
+    min-width: 0;
+}
+
+/* Panel de contenido centrado */
+
+.ajax-grid .ajax-panel:nth-child(3) {
+    grid-column: 1 / -1;
+    width: min(100%, 850px);
+    justify-self: center;
 }
 
 .pagina-ajax .ajax-panel h3 {
     color: #245B58;
-    margin: 24px 0 12px;
+    margin: 20px 0 12px;
 }
+
+/* Formulario de solicitud */
 
 .ajax-formulario {
     display: flex;
@@ -213,8 +232,10 @@ main > a:hover {
     flex-shrink: 0;
 }
 
+/* Estado de la solicitud */
+
 .estado-solicitud {
-    margin-top: 20px;
+    margin-top: 18px;
     padding: 12px 15px;
     background-color: #F5F3EC;
     border-left: 4px solid #D5A52D;
@@ -222,27 +243,31 @@ main > a:hover {
     font-weight: 600;
 }
 
+/* Información HTTP */
+
 .informacion-respuesta {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
+    gap: 12px;
     margin-top: 18px;
 }
 
 .informacion-respuesta p {
-    padding: 15px;
+    padding: 13px;
     background-color: #F5F3EC;
     border-radius: 6px;
     overflow-wrap: anywhere;
 }
 
+/* Áreas de respuesta */
+
 .ajax-salida,
 .ajax-contenido {
     width: 100%;
+    max-height: 220px;
     min-height: 110px;
-    max-height: 350px;
     overflow: auto;
-    padding: 18px;
+    padding: 16px;
     background-color: #F5F3EC;
     color: #34413F;
     border: 1px solid #D8D6CE;
@@ -255,10 +280,24 @@ main > a:hover {
 }
 
 .ajax-contenido {
-    min-height: 180px;
+    max-height: 350px;
+    min-height: 200px;
 }
 
 /* Diseño adaptable */
+
+@media (max-width: 800px) {
+
+    .ajax-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ajax-grid .ajax-panel:nth-child(3) {
+        grid-column: auto;
+        width: 100%;
+    }
+
+}
 
 @media (max-width: 650px) {
 
@@ -275,3 +314,4 @@ main > a:hover {
     }
 
 }
+
